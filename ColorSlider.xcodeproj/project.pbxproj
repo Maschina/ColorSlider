@@ -12,6 +12,8 @@
 		666782E3229736320038A175 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666782E2229736320038A175 /* AppDelegate.swift */; };
 		666782E5229736320038A175 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666782E4229736320038A175 /* Assets.xcassets */; };
 		666782E8229736330038A175 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666782E6229736320038A175 /* MainMenu.xib */; };
+		666782F022973C130038A175 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 666782EE22973C130038A175 /* README.md */; };
+		666782F122973C130038A175 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 666782EF22973C130038A175 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		666782E7229736320038A175 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		666782E9229736330038A175 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		666782EA229736330038A175 /* ColorSlider_App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColorSlider_App.entitlements; sourceTree = "<group>"; };
+		666782EE22973C130038A175 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		666782EF22973C130038A175 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +52,8 @@
 		666782C4229736040038A175 = {
 			isa = PBXGroup;
 			children = (
-				666782D9229736100038A175 /* Sources */,
+				666782EF22973C130038A175 /* LICENSE */,
+				666782EE22973C130038A175 /* README.md */,
 				666782D0229736040038A175 /* ColorSlider */,
 				666782E1229736320038A175 /* ColorSlider-App */,
 				666782CF229736040038A175 /* Products */,
@@ -67,18 +72,11 @@
 		666782D0229736040038A175 /* ColorSlider */ = {
 			isa = PBXGroup;
 			children = (
+				666782DA229736220038A175 /* ColorSlider.swift */,
 				666782D1229736040038A175 /* ColorSlider.h */,
 				666782D2229736040038A175 /* Info.plist */,
 			);
 			path = ColorSlider;
-			sourceTree = "<group>";
-		};
-		666782D9229736100038A175 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				666782DA229736220038A175 /* ColorSlider.swift */,
-			);
-			path = Sources;
 			sourceTree = "<group>";
 		};
 		666782E1229736320038A175 /* ColorSlider-App */ = {
@@ -185,6 +183,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				666782F122973C130038A175 /* LICENSE in Resources */,
+				666782F022973C130038A175 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
