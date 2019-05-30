@@ -1,0 +1,29 @@
+disabled_rules: #Rule identifiers to exclude from running
+- trailing_whitespace
+- vertical_whitespace
+- type_body_length
+- file_length
+
+opt_in_rules: #Check here for recommendations: https://www.avanderlee.com/optimization/swiftlint-optin-rules/
+- convenience_type #Avoid instantiation by using a caseless enum for hosting only static members.
+- empty_count #This rule can potentially improve performance, especially with iterating over large collections.
+- empty_string #Avoiding instantiation of an empty String by using isEmpty over "".
+- fatal_error_message #A fatalError is often used to prevent invalid states and to help you debug your code. A fatalError is most likely easier to understand by enforcing a message within the body.
+- first_where #Performance is improved by using .first(where:) over .filter { }.first in collections to prevent iterating over the whole collection.
+- modifier_order #Consistency throughout your project improves readability overall. This rule enforces the order of modifiers by requiring override before public, public before final and so on.
+- toggle_bool #Prefer someBool.toggle() over someBool = !someBool.
+- unused_private_declaration #It is important to keep your codebase clean. This rule prevents unused private declarations and allows you to remove unused code.
+- unavailable_function #Unimplemented functions should be marked as unavailable.
+
+line_length:
+    warning: 150
+    error: 200
+    ignores_function_declarations: true
+    ignores_comments: true
+    ignores_urls: true
+
+excluded:
+- Carthage
+- Pods
+
+reporter: "xcode"
