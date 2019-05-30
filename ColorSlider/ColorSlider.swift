@@ -105,12 +105,11 @@ class ColorSlider: NSSlider {
     
     // MARK: - UI Sizing
     
-    lazy var knobX: CGFloat = {
+    var knobX: CGFloat {
         let innerRect = bounds.insetBy(dx: bounds.height / 2, dy: 0)
-        
         if maxValue - minValue == 0 { return innerRect.minX }
         return innerRect.minX + CGFloat((doubleValue - minValue) / maxValue) * innerRect.width
-    }()
+    }
     
     lazy var backgroundLinedRect: NSBezierPath = {
         let bezelMargin: CGFloat = 8
@@ -124,9 +123,9 @@ class ColorSlider: NSSlider {
         return NSBezierPath(roundedRect: bezelFrame, xRadius: bezelFrame.height * 0.5, yRadius: bezelFrame.height * 0.5)
     }()
     
-    lazy var knobRect: NSBezierPath = {
+    var knobRect: NSBezierPath {
         return NSBezierPath(ovalIn: NSRect(x: knobX - bounds.height * 0.5, y: 0, width: bounds.height, height: bounds.height).insetBy(dx: 2, dy: 2))
-    }()
+    }
     
     
     // MARK: - Drawing
