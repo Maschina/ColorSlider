@@ -10,7 +10,7 @@ import Cocoa
 
 
 @IBDesignable
-class ColorSlider: NSSlider {
+public class ColorSlider: NSSlider {
     
     // MARK: - Properties
     
@@ -40,7 +40,7 @@ class ColorSlider: NSSlider {
     
     // MARK: - Inits
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         setupView()
     }
@@ -69,11 +69,11 @@ class ColorSlider: NSSlider {
         initLayer()
     }
     
-    override var acceptsFirstResponder: Bool {
+    override public var acceptsFirstResponder: Bool {
         return true
     }
     
-    override func becomeFirstResponder() -> Bool {
+    override public func becomeFirstResponder() -> Bool {
         return true
     }
     
@@ -130,11 +130,11 @@ class ColorSlider: NSSlider {
     
     // MARK: - Drawing
     
-    override func draw(_ dirtyRect: NSRect) {
+    override public func draw(_ dirtyRect: NSRect) {
         return
     }
     
-    private func initLayer() {
+    public func initLayer() {
         noteFocusRingMaskChanged()
         
         // Background
@@ -158,7 +158,7 @@ class ColorSlider: NSSlider {
         knobLayer.shadowRadius = 1
     }
     
-    override internal func updateLayer() {
+    override public func updateLayer() {
         noteFocusRingMaskChanged()
         
         // Knob
@@ -166,12 +166,12 @@ class ColorSlider: NSSlider {
         knobLayer.fillColor = knobColor.cgColor
     }
     
-    override func drawFocusRingMask() {
+    override public func drawFocusRingMask() {
         let knobPath = NSBezierPath(ovalIn: NSRect(x: knobX - bounds.height * 0.5, y: 0, width: bounds.height, height: bounds.height).insetBy(dx: 2, dy: 2))
         knobPath.fill()
     }
     
-    override var focusRingMaskBounds: NSRect {
+    override public var focusRingMaskBounds: NSRect {
         return bounds.insetBy(dx: 1, dy: 1)
     }
 }
