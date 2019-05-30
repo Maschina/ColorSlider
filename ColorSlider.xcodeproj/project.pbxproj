@@ -15,7 +15,6 @@
 		666782F022973C130038A175 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 666782EE22973C130038A175 /* README.md */; };
 		666782F122973C130038A175 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 666782EF22973C130038A175 /* LICENSE */; };
 		666782F222973F8A0038A175 /* ColorSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666782DA229736220038A175 /* ColorSlider.swift */; };
-		666782F322973FC40038A175 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 666782D2229736040038A175 /* Info.plist */; };
 		666782F422973FC40038A175 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 666782D2229736040038A175 /* Info.plist */; };
 		66B89A3E229FE784006E4A4F /* ExtensionNSBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B89A3D229FE784006E4A4F /* ExtensionNSBezierPath.swift */; };
 		66B89A3F229FE79F006E4A4F /* ExtensionNSBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B89A3D229FE784006E4A4F /* ExtensionNSBezierPath.swift */; };
@@ -200,7 +199,6 @@
 				66B89A45229FEB00006E4A4F /* .swiftlint.yml in Resources */,
 				666782F122973C130038A175 /* LICENSE in Resources */,
 				666782F022973C130038A175 /* README.md in Resources */,
-				666782F322973FC40038A175 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
