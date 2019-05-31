@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		666782D3229736040038A175 /* ColorSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 666782D1229736040038A175 /* ColorSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		666782DB229736220038A175 /* ColorSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666782DA229736220038A175 /* ColorSlider.swift */; };
 		666782E3229736320038A175 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666782E2229736320038A175 /* AppDelegate.swift */; };
 		666782E5229736320038A175 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666782E4229736320038A175 /* Assets.xcassets */; };
@@ -110,7 +109,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				666782D3229736040038A175 /* ColorSlider.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
