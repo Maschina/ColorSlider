@@ -13,7 +13,9 @@ import ColorSlider
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
-
+    @IBOutlet weak var colorSlider: ColorSlider!
+    @IBOutlet weak var colorWell: NSColorWell!
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }

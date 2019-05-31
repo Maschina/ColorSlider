@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ColorSlider"
-  spec.version      = "1.1.0"
+  spec.version      = "1.1.1"
   spec.summary      = "Static ColorSlider with animation capability for macOS (AppKit)."
 
   # This description is used to generate tags and improve search results.
@@ -81,8 +81,8 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  #spec.source       = { :git => "http://EXAMPLE/ColorSlider.git", :tag => "#{spec.version}" }
-  spec.source       = { :path => '.' }
+  spec.source       = { :git => "https://github.com/Hokyo/ColorSlider.git", :tag => "#{spec.version}" }
+  #spec.source       = { :path => '.' }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

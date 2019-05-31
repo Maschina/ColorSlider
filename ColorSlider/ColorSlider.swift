@@ -25,6 +25,7 @@ public class ColorSlider: NSSlider {
     /// Indicating that user is currently interacting with this control, e.g. mouse down
     fileprivate(set) var isTracking: Bool = false {
         didSet {
+            updateLayer()
             animateBackground()
         }
     }

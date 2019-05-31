@@ -14,6 +14,8 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="ColorSlider_App" customModuleProvider="target">
             <connections>
+                <outlet property="colorSlider" destination="wn0-0N-bzV" id="D8h-Cg-gUF"/>
+                <outlet property="colorWell" destination="Cvi-bQ-NY4" id="ven-tV-oys"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -693,7 +695,15 @@
                         <rect key="frame" x="114" y="34" width="253" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="fam-C8-dAn"/>
+                        <connections>
+                            <action selector="onSliderChange:" target="Voe-Tx-rLC" id="8E7-SL-0EW"/>
+                        </connections>
                     </slider>
+                    <colorWell fixedFrame="YES" bordered="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cvi-bQ-NY4">
+                        <rect key="frame" x="383" y="24" width="44" height="39"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </colorWell>
                 </subviews>
             </view>
             <point key="canvasLocation" x="136" y="68.5"/>
