@@ -27,7 +27,7 @@ github "Hokyo/ColorSlider"
 1. Add the following to your *Podfile*:
 
 ```
-pod 'ColorSlider'
+pod 'ColorSlider', :git => 'https://github.com/Hokyo/ColorSlider.git', :tag => '1.1.1'
 ```
 
 2. Run `pod install`.
