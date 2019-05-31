@@ -14,7 +14,7 @@ public class ColorSlider: NSSlider {
     
     // MARK: - Properties
     
-    @IBInspectable public var useAnimation: Bool = false
+    @IBInspectable public var useAnimation: Bool = true
     
     public var selectedColor: NSColor {
         let amount: CGFloat = CGFloat(floatValue / Float(maxValue))
@@ -22,11 +22,14 @@ public class ColorSlider: NSSlider {
     }
     
     
-    fileprivate(set) var isMouseDown: Bool = false {
+    /// Indicating that user is currently interacting with this control, e.g. mouse down
+    fileprivate(set) var isTracking: Bool = false {
         didSet {
+            animateBackground()
         }
     }
     
+    /// Indicating that user has dragged the knob of the control from A to B.
     fileprivate(set) var isDragging: Bool = false {
         didSet {
             updateLayer()
@@ -37,7 +40,6 @@ public class ColorSlider: NSSlider {
     private let backgroundLayer = CAShapeLayer()
     private let backgroundGradientLayer = CAGradientLayer()
     private let knobLayer = CAShapeLayer()
-    private let knobShadowLayer = CAShapeLayer()
     
     
     // MARK: - Inits
@@ -66,7 +68,6 @@ public class ColorSlider: NSSlider {
         rootLayer.addSublayer(backgroundLayer)
         rootLayer.addSublayer(backgroundGradientLayer)
         rootLayer.addSublayer(knobLayer)
-        rootLayer.addSublayer(knobShadowLayer)
         
         initLayer()
     }
@@ -136,7 +137,7 @@ public class ColorSlider: NSSlider {
         return
     }
     
-    public func initLayer() {
+    private func initLayer() {
         noteFocusRingMaskChanged()
         
         // Background
@@ -168,9 +169,19 @@ public class ColorSlider: NSSlider {
         knobLayer.fillColor = knobColor.cgColor
     }
     
+    private func animateBackground() {
+        if useAnimation {
+            let backgroundPathAnim = CABasicAnimation(keyPath: "path")
+            backgroundPathAnim.fromValue = isTracking ? backgroundLinedRect.cgPath : backgroundFilledRect.cgPath
+            backgroundPathAnim.toValue = isTracking ? backgroundFilledRect.cgPath : backgroundLinedRect.cgPath
+            backgroundPathAnim.duration = isTracking ? 0.05 : 1.0
+            backgroundLayer.add(backgroundPathAnim, forKey: "animateBackgroundHeight")
+            backgroundLayer.path = isTracking ? backgroundFilledRect.cgPath : backgroundLinedRect.cgPath
+        }
+    }
+    
     override public func drawFocusRingMask() {
-        let knobPath = NSBezierPath(ovalIn: NSRect(x: knobX - bounds.height * 0.5, y: 0, width: bounds.height, height: bounds.height).insetBy(dx: 2, dy: 2))
-        knobPath.fill()
+        knobRect.fill()
     }
     
     override public var focusRingMaskBounds: NSRect {
@@ -198,7 +209,7 @@ class ColorSliderCell: NSSliderCell {
     // MARK: - Events
     
     override func startTracking(at startPoint: NSPoint, in controlView: NSView) -> Bool {
-        parent?.isMouseDown = true
+        parent?.isTracking = true
         return super.startTracking(at: startPoint, in: controlView)
     }
     
@@ -209,6 +220,6 @@ class ColorSliderCell: NSSliderCell {
     
     override func stopTracking(last lastPoint: NSPoint, current stopPoint: NSPoint, in controlView: NSView, mouseIsUp flag: Bool) {
         super.stopTracking(last: lastPoint, current: stopPoint, in: controlView, mouseIsUp: flag)
-        parent?.isMouseDown = false
+        parent?.isTracking = false
     }
 }
