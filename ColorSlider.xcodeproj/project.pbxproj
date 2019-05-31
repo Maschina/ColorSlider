@@ -59,7 +59,6 @@
 		666782EA229736330038A175 /* ColorSlider_App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColorSlider_App.entitlements; sourceTree = "<group>"; };
 		666782EE22973C130038A175 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		666782EF22973C130038A175 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		66B89A3A229E8760006E4A4F /* ColorSliderOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderOld.swift; sourceTree = "<group>"; };
 		66B89A3D229FE784006E4A4F /* ExtensionNSBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionNSBezierPath.swift; sourceTree = "<group>"; };
 		66B89A44229FEB00006E4A4F /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		66B89A5922A154DC006E4A4F /* ColorSlider.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ColorSlider.podspec; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -109,7 +108,6 @@
 		666782D0229736040038A175 /* ColorSlider */ = {
 			isa = PBXGroup;
 			children = (
-				66B89A3A229E8760006E4A4F /* ColorSliderOld.swift */,
 				666782DA229736220038A175 /* ColorSlider.swift */,
 				66B89A3D229FE784006E4A4F /* ExtensionNSBezierPath.swift */,
 				666782D1229736040038A175 /* ColorSlider.h */,

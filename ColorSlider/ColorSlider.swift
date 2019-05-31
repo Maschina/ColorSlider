@@ -23,7 +23,7 @@ public class ColorSlider: NSSlider {
     
     
     /// Indicating that user is currently interacting with this control, e.g. mouse down
-    fileprivate(set) var isTracking: Bool = false {
+    fileprivate(set) public var isTracking: Bool = false {
         didSet {
             updateLayer()
             animateBackground()
@@ -31,7 +31,7 @@ public class ColorSlider: NSSlider {
     }
     
     /// Indicating that user has dragged the knob of the control from A to B.
-    fileprivate(set) var isDragging: Bool = false {
+    fileprivate(set) public var isDragging: Bool = false {
         didSet {
             updateLayer()
         }

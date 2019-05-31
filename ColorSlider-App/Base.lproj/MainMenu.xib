@@ -691,7 +691,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="480" height="87"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <slider canDrawConcurrently="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wn0-0N-bzV" customClass="ColorSlider" customModule="ColorSlider">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wn0-0N-bzV" customClass="ColorSlider" customModule="ColorSlider">
                         <rect key="frame" x="114" y="34" width="253" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="fam-C8-dAn"/>
