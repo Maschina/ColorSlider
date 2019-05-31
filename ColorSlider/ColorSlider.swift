@@ -14,6 +14,8 @@ public class ColorSlider: NSSlider {
     
     // MARK: - Properties
     
+    @IBInspectable public var useAnimation: Bool = false
+    
     public var selectedColor: NSColor {
         let amount: CGFloat = CGFloat(floatValue / Float(maxValue))
         return backgroundGradient.interpolatedColor(atLocation: amount)
