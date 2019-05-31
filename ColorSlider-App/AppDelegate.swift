@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import ColorSlider
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
