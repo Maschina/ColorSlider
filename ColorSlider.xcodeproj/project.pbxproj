@@ -19,6 +19,7 @@
 		66B89A46229FEB00006E4A4F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 66B89A44229FEB00006E4A4F /* .swiftlint.yml */; };
 		66B89A5022A1381D006E4A4F /* ColorSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666782CE229736040038A175 /* ColorSlider.framework */; };
 		66B89A5122A1381D006E4A4F /* ColorSlider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 666782CE229736040038A175 /* ColorSlider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		66B89A5A22A154DC006E4A4F /* ColorSlider.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 66B89A5922A154DC006E4A4F /* ColorSlider.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		66B89A3A229E8760006E4A4F /* ColorSliderOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderOld.swift; sourceTree = "<group>"; };
 		66B89A3D229FE784006E4A4F /* ExtensionNSBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionNSBezierPath.swift; sourceTree = "<group>"; };
 		66B89A44229FEB00006E4A4F /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		66B89A5922A154DC006E4A4F /* ColorSlider.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ColorSlider.podspec; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				666782DA229736220038A175 /* ColorSlider.swift */,
 				66B89A3D229FE784006E4A4F /* ExtensionNSBezierPath.swift */,
 				666782D1229736040038A175 /* ColorSlider.h */,
+				66B89A5922A154DC006E4A4F /* ColorSlider.podspec */,
 				666782D2229736040038A175 /* Info.plist */,
 			);
 			path = ColorSlider;
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66B89A45229FEB00006E4A4F /* .swiftlint.yml in Resources */,
+				66B89A5A22A154DC006E4A4F /* ColorSlider.podspec in Resources */,
 				666782F122973C130038A175 /* LICENSE in Resources */,
 				666782F022973C130038A175 /* README.md in Resources */,
 			);

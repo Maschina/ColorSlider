@@ -22,3 +22,12 @@ github "Hokyo/ColorSlider"
     1. Either Run `carthage update` and add the framework as described in [Carthage Readme](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application)
     2. Or use a very convenient [auto-build script](https://github.com/k-lpmg/xcode-build-script-for-carthage) that adds the newly built framework to your Xcode project automatically
 
+### CocoaPods
+
+1. Add the following to your *Podfile*:
+
+```
+pod 'ColorSlider'
+```
+
+2. Run `pod install`.
