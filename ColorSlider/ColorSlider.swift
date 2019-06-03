@@ -12,9 +12,25 @@ import Cocoa
 @IBDesignable
 public class ColorSlider: NSSlider {
     
+    public enum ColorType: Int {
+        case unknown = 0
+        case color = 3
+        case temperature = 4
+    }
+
+    
     // MARK: - Properties
     
     @IBInspectable public var useAnimation: Bool = true
+    
+    /// Type of color: 3=Color mode, 4=Temperature mode
+    @IBInspectable public var colorType: Int = ColorType.color.rawValue {
+        didSet { updateLayer() }
+    }
+    
+    @IBInspectable public var ctMinValue: Int = 2200
+    @IBInspectable public var ctMaxValue: Int = 6500
+    
     
     public var selectedColor: NSColor {
         let amount: CGFloat = CGFloat(floatValue / Float(maxValue))
@@ -88,10 +104,70 @@ public class ColorSlider: NSSlider {
         return NSColor.systemGray
     }
     
-    var backgroundColors: [NSColor] {
-        return Array(0...10).map{
-            NSColor.init(calibratedHue: CGFloat($0) / 10, saturation: 1.0, brightness: 1.0, alpha: 1.0)
+    /// Calculate RGB values from color temperature
+    ///
+    /// - Parameter fromCt: Color temperature value in [K]
+    /// - Returns: Calculated value, shifted by an offset
+    private func getRGB(fromCt: Int, offset: Int = 2000) -> NSColor {
+        // All calculations require tmpKelvin \ 100, so only do the conversion once
+        let temperature = Float(fromCt + offset) / 100.0
+        var red: Int
+        var green: Int
+        var blue: Int
+        
+        // Calculate Red:
+        if temperature <= 66 {
+            red = 255
+        } else {
+            red = Int(329.698727446 * (pow((temperature - 60.0), -0.1332047592)))
+            if red < 0 { red = 0 }
+            if red > 255 { red = 255 }
         }
+        
+        // Calculate Green:
+        if temperature <= 66 {
+            green = Int(99.4708025861 * logf(temperature) - 161.1195681661)
+        } else {
+            green = Int(288.1221695283 * (pow((temperature - 60.0), -0.0755148492)))
+        }
+        if green < 0 { green = 0 }
+        if green > 255 { green = 255 }
+        
+        // Calculate Blue:
+        if temperature >= 66 {
+            blue = 255
+        } else {
+            if temperature <= 19 {
+                blue = 0
+            } else {
+                blue = Int(138.5177312231 * logf(temperature - 10) - 305.0447927307)
+                if blue < 0 { blue = 0 }
+                if blue > 255 { blue = 255 }
+            }
+        }
+        
+        return NSColor(red: CGFloat(red)/255, green: CGFloat(green)/255, blue: CGFloat(blue)/255, alpha: 1)
+    }
+    
+    var backgroundColors: [NSColor] {
+        switch ColorType(rawValue: colorType) ?? .unknown {
+            
+        case .color:
+            return Array(0...10).map{
+                NSColor.init(calibratedHue: CGFloat($0) / 10, saturation: 1.0, brightness: 1.0, alpha: 1.0)
+            }
+            
+        case .temperature:
+            let fromValue = ctMinValue
+            let toValue = ctMaxValue + (ctMaxValue - ctMinValue) / 10
+            return stride(from: fromValue, to: toValue, by: (toValue - fromValue) / 10).map{
+                getRGB(fromCt: $0, offset: 2000)
+            }
+            
+        default:
+            return [NSColor.black]
+        }
+        
     }
     
     var backgroundGradient: NSGradient {
