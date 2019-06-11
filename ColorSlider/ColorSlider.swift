@@ -23,7 +23,7 @@ public class ColorSlider: NSSlider {
         var temperatureMin: Int = 2200
         var temperatureMax: Int = 6500
         
-        init(color type: ColorType, minTemperature ctMin: Int = 2200, maxTemperature ctMax: Int = 6500) {
+        public init(color type: ColorType, minTemperature ctMin: Int = 2200, maxTemperature ctMax: Int = 6500) {
             colorType = type
             temperatureMin = ctMin
             temperatureMax = ctMax
