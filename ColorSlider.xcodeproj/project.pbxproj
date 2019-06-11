@@ -157,6 +157,7 @@
 				666782CA229736040038A175 /* Sources */,
 				666782CB229736040038A175 /* Frameworks */,
 				666782CC229736040038A175 /* Resources */,
+				66144EB122B03B5A0092ADA6 /* Update version */,
 			);
 			buildRules = (
 			);
@@ -251,6 +252,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		66144EB122B03B5A0092ADA6 /* Update version */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Update version";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/Scripts/update_version_numbers.sh\n";
+		};
 		66B89A40229FE89B006E4A4F /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
