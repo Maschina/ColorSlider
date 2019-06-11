@@ -12,10 +12,22 @@ import Cocoa
 @IBDesignable
 public class ColorSlider: NSSlider {
     
-    public enum ColorType: Int {
-        case unknown = 0
-        case color = 3
-        case temperature = 4
+    public struct ColorSetting {
+        public enum ColorType: Int {
+            case unknown = 0
+            case color = 3
+            case temperature = 4
+        }
+        
+        var colorType: ColorType = .unknown
+        var temperatureMin: Int = 2200
+        var temperatureMax: Int = 6500
+        
+        init(color type: ColorType, minTemperature ctMin: Int = 2200, maxTemperature ctMax: Int = 6500) {
+            colorType = type
+            temperatureMin = ctMin
+            temperatureMax = ctMax
+        }
     }
 
     
@@ -23,13 +35,15 @@ public class ColorSlider: NSSlider {
     
     @IBInspectable public var useAnimation: Bool = true
     
-    /// Type of color: 3=Color mode, 4=Temperature mode
-    @IBInspectable public var colorType: Int = ColorType.color.rawValue {
+    /// Setting for color slider
+    public var setting: ColorSetting = ColorSetting(color: .color) {
         didSet { updateLayer() }
     }
     
-    @IBInspectable public var ctMinValue: Int = 2200
-    @IBInspectable public var ctMaxValue: Int = 6500
+    /// Setting for saturation
+    public var saturation: Float = 0.0 {
+        didSet { updateLayer() }
+    }
     
     
     public var selectedColor: NSColor {
@@ -146,20 +160,20 @@ public class ColorSlider: NSSlider {
             }
         }
         
-        return NSColor(red: CGFloat(red)/255, green: CGFloat(green)/255, blue: CGFloat(blue)/255, alpha: 1)
+        return NSColor(red: CGFloat(red)/255, green: CGFloat(green)/255, blue: CGFloat(blue)/255, alpha: 1).modified(saturation: CGFloat(saturation))
     }
     
     var backgroundColors: [NSColor] {
-        switch ColorType(rawValue: colorType) ?? .unknown {
+        switch setting.colorType {
             
         case .color:
             return Array(0...10).map{
-                NSColor.init(calibratedHue: CGFloat($0) / 10, saturation: 1.0, brightness: 1.0, alpha: 1.0)
+                NSColor.init(calibratedHue: CGFloat($0) / 10, saturation: CGFloat(saturation), brightness: 1.0, alpha: 1.0)
             }
             
         case .temperature:
-            let fromValue = ctMinValue
-            let toValue = ctMaxValue + (ctMaxValue - ctMinValue) / 10
+            let fromValue = setting.temperatureMin
+            let toValue = setting.temperatureMax + (setting.temperatureMax - setting.temperatureMin) / 10
             return stride(from: fromValue, to: toValue, by: (toValue - fromValue) / 10).map{
                 getRGB(fromCt: $0, offset: 2000)
             }

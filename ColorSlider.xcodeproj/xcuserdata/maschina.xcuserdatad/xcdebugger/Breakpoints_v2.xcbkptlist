@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "ColorSlider/ColorSlider.swift"
-            timestampString = "581254216.37617"
+            timestampString = "581978793.668697"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "getRGB(fromCt:offset:)"
             landmarkType = "7">
             <Actions>
