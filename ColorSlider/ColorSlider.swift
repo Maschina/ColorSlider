@@ -21,12 +21,12 @@ public class ColorSlider: NSSlider {
     // MARK: - Properties
     
     /// Setting for color slider
-    public var colorType: ColorType = .unknown {
+    public var colorType: ColorType = .color {
         didSet { updateLayer() }
     }
     
     /// Setting for saturation
-    public var saturation: Float = 0.0 {
+    public var saturation: Float = 1.0 {
         didSet { updateLayer() }
     }
     
