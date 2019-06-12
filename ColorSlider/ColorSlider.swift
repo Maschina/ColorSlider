@@ -147,7 +147,7 @@ public class ColorSlider: NSSlider {
             }
         }
         
-        return NSColor(red: CGFloat(red)/255, green: CGFloat(green)/255, blue: CGFloat(blue)/255, alpha: 1).modified(saturation: CGFloat(saturation))
+        return NSColor(red: CGFloat(red)/255, green: CGFloat(green)/255, blue: CGFloat(blue)/255, alpha: 1)
     }
     
     var backgroundColors: [NSColor] {
