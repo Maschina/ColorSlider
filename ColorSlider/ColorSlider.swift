@@ -12,31 +12,16 @@ import Cocoa
 @IBDesignable
 public class ColorSlider: NSSlider {
     
-    public struct ColorSetting {
-        public enum ColorType: Int {
-            case unknown = 0
-            case color = 3
-            case temperature = 4
-        }
-        
-        var colorType: ColorType = .unknown
-        var temperatureMin: Int = 2200
-        var temperatureMax: Int = 6500
-        
-        public init(color type: ColorType, minTemperature ctMin: Int = 2200, maxTemperature ctMax: Int = 6500) {
-            colorType = type
-            temperatureMin = ctMin
-            temperatureMax = ctMax
-        }
+    public enum ColorType: Int {
+        case unknown = 0
+        case color = 3
+        case temperature = 4
     }
-
     
     // MARK: - Properties
     
-    @IBInspectable public var useAnimation: Bool = true
-    
     /// Setting for color slider
-    public var setting: ColorSetting = ColorSetting(color: .color) {
+    public var colorType: ColorType = .unknown {
         didSet { updateLayer() }
     }
     
@@ -45,7 +30,11 @@ public class ColorSlider: NSSlider {
         didSet { updateLayer() }
     }
     
+    public var colorTemperatureMin: Int = 2200
+    public var colorTemperatureMax: Int = 6500
     
+    @IBInspectable public var useAnimation: Bool = true
+
     public var selectedColor: NSColor {
         let amount: CGFloat = CGFloat(floatValue / Float(maxValue))
         return backgroundGradient.interpolatedColor(atLocation: amount)
@@ -164,7 +153,7 @@ public class ColorSlider: NSSlider {
     }
     
     var backgroundColors: [NSColor] {
-        switch setting.colorType {
+        switch colorType {
             
         case .color:
             return Array(0...10).map{
@@ -172,8 +161,8 @@ public class ColorSlider: NSSlider {
             }
             
         case .temperature:
-            let fromValue = setting.temperatureMin
-            let toValue = setting.temperatureMax + (setting.temperatureMax - setting.temperatureMin) / 10
+            let fromValue = colorTemperatureMin
+            let toValue = colorTemperatureMax + (colorTemperatureMax - colorTemperatureMin) / 10
             return stride(from: fromValue, to: toValue, by: (toValue - fromValue) / 10).map{
                 getRGB(fromCt: $0, offset: 2000)
             }
