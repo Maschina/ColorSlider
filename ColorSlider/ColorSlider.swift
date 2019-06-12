@@ -21,17 +21,15 @@ public class ColorSlider: NSSlider {
     // MARK: - Properties
     
     /// Setting for color slider
-    public var colorType: ColorType = .color {
-        didSet { updateLayer() }
-    }
+    public var colorType: ColorType = .color {  didSet { initLayer() } }
     
     /// Setting for saturation
-    public var saturation: Float = 1.0 {
-        didSet { updateLayer() }
-    }
+    public var saturation: Float = 1.0 {  didSet { initLayer() } }
     
-    public var colorTemperatureMin: Int = 2200
-    public var colorTemperatureMax: Int = 6500
+    /// Minimum color temperature value
+    public var colorTemperatureMin: Int = 2200 {  didSet { initLayer() } }
+    /// Maximum color temperature value
+    public var colorTemperatureMax: Int = 6500 {  didSet { initLayer() } }
     
     @IBInspectable public var useAnimation: Bool = true
 
