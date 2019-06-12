@@ -15,8 +15,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "159"
             endingLineNumber = "159"
-            landmarkName = "getRGB(fromCt:offset:)"
-            landmarkType = "7">
+            landmarkName = "backgroundColors"
+            landmarkType = "24">
             <Actions>
                <BreakpointActionProxy
                   ActionExtensionID = "Xcode.BreakpointAction.Log">
