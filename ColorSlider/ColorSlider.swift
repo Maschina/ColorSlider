@@ -27,9 +27,9 @@ public class ColorSlider: NSSlider {
     public var saturation: Float = 1.0 {  didSet { initLayer() } }
     
     /// Minimum color temperature value
-    public var colorTemperatureMin: Int = 2200 {  didSet { initLayer() } }
+    public var colorTemperatureMin: Int = 6500 {  didSet { initLayer() } }
     /// Maximum color temperature value
-    public var colorTemperatureMax: Int = 6500 {  didSet { initLayer() } }
+    public var colorTemperatureMax: Int = 2200 {  didSet { initLayer() } }
     
     @IBInspectable public var useAnimation: Bool = true
 
@@ -162,7 +162,7 @@ public class ColorSlider: NSSlider {
             let fromValue = colorTemperatureMin
             let toValue = colorTemperatureMax + (colorTemperatureMax - colorTemperatureMin) / 10
             return stride(from: fromValue, to: toValue, by: (toValue - fromValue) / 10).map{
-                getRGB(fromCt: $0, offset: 2000)
+                getRGB(fromCt: $0, offset: 500)
             }
             
         default:
