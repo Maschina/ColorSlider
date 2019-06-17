@@ -41,7 +41,8 @@ buildNumber=$(expr $(git rev-list develop --count) - $(git rev-list HEAD..develo
 
 # Update Info.plist
 echo "Updating marketing version number '${VersionString}' to ${PROJECT_DIR}/${INFOPLIST_FILE}."
-xcrun agvtool new-marketing-version "${VersionString}"
+#xcrun agvtool new-marketing-version "${VersionString}"
+/usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VersionString" "${PROJECT_DIR}/${INFOPLIST_FILE}"
 echo "Updating build number '${buildNumber}' to ${TARGET_BUILD_DIR}/${INFOPLIST_PATH}."
 /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $buildNumber" "${TARGET_BUILD_DIR}/${INFOPLIST_PATH}"
 if [ -f "${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist" ]; then
