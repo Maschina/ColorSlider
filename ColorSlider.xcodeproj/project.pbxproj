@@ -112,10 +112,10 @@
 			children = (
 				666782DA229736220038A175 /* ColorSlider.swift */,
 				66B89A3D229FE784006E4A4F /* ExtensionNSBezierPath.swift */,
+				66144EB322B0487A0092ADA6 /* NSColor.swift */,
 				666782D1229736040038A175 /* ColorSlider.h */,
 				66B89A5922A154DC006E4A4F /* ColorSlider.podspec */,
 				666782D2229736040038A175 /* Info.plist */,
-				66144EB322B0487A0092ADA6 /* NSColor.swift */,
 			);
 			path = ColorSlider;
 			sourceTree = "<group>";
