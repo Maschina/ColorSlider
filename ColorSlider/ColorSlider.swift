@@ -54,6 +54,17 @@ public class ColorSlider: NSSlider {
         }
     }
     
+    
+    private var _isEnabled: Bool = true
+    public override var isEnabled: Bool {
+        set {
+            _isEnabled = newValue
+            initLayer()
+        }
+        get { return _isEnabled}
+    }
+    
+    
     private let rootLayer = CALayer()
     private let backgroundLayer = CAShapeLayer()
     private let backgroundGradientLayer = CAGradientLayer()
@@ -91,11 +102,11 @@ public class ColorSlider: NSSlider {
     }
     
     override public var acceptsFirstResponder: Bool {
-        return true
+        return isEnabled
     }
     
     override public func becomeFirstResponder() -> Bool {
-        return true
+        return isEnabled
     }
     
     
@@ -155,7 +166,8 @@ public class ColorSlider: NSSlider {
             
         case .color:
             return Array(0...10).map{
-                NSColor.init(calibratedHue: CGFloat($0) / 10, saturation: CGFloat(saturation), brightness: 1.0, alpha: 1.0)
+                let color = NSColor.init(calibratedHue: CGFloat($0) / 10, saturation: CGFloat(saturation), brightness: 1.0, alpha: 1.0)
+                return isEnabled ? color : color.grayscale()
             }
             
         case .temperature:
@@ -176,11 +188,11 @@ public class ColorSlider: NSSlider {
     }
     
     var shadowColor: NSColor {
-        return NSColor(white: 0.3, alpha: 0.3)
+        return isEnabled ? NSColor(white: 0.3, alpha: 0.3) : NSColor(white: 0.6, alpha: 0.3)
     }
     
     var knobColor: NSColor {
-        return selectedColor
+        return isEnabled ? selectedColor : NSColor(red: 251/255, green: 251/255, blue: 251/255, alpha: 1)
     }
     
     
@@ -234,7 +246,7 @@ public class ColorSlider: NSSlider {
         knobLayer.lineWidth = 0.5
         knobLayer.fillColor = knobColor.cgColor
         knobLayer.shadowColor = NSColor.shadowColor.cgColor
-        knobLayer.shadowOpacity = 0.35
+        knobLayer.shadowOpacity = isEnabled ? 0.35 : 0.1
         knobLayer.shadowOffset = CGSize(width: 0, height: 0.5)
         knobLayer.shadowRadius = 1
     }
@@ -287,11 +299,13 @@ class ColorSliderCell: NSSliderCell {
     // MARK: - Events
     
     override func startTracking(at startPoint: NSPoint, in controlView: NSView) -> Bool {
+        if let isEnabled = parent?.isEnabled { if !isEnabled { return false } }
         parent?.isTracking = true
         return super.startTracking(at: startPoint, in: controlView)
     }
     
     override func continueTracking(last lastPoint: NSPoint, current currentPoint: NSPoint, in controlView: NSView) -> Bool {
+        if let isEnabled = parent?.isEnabled { if !isEnabled { return false } }
         parent?.isDragging = true
         return super.continueTracking(last: lastPoint, current: currentPoint, in: controlView)
     }

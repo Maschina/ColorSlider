@@ -20,4 +20,15 @@ extension NSColor {
         
         return NSColor(hue: currentHue, saturation: saturation, brightness: currentBrightness, alpha: currentAlpha)
     }
+    
+    func grayscale() -> NSColor {
+        var red: CGFloat = 0
+        var blue: CGFloat = 0
+        var green: CGFloat = 0
+        var alpha: CGFloat = 0
+        
+        self.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        return NSColor(white: 0.5*red + 0.5*green + 0.5*blue, alpha: alpha)
+    }
 }
