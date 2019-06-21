@@ -21,7 +21,7 @@ public class ColorSlider: NSSlider {
     // MARK: - Properties
     
     /// Setting for color slider
-    public var colorType: ColorType = .temperature {  didSet { initLayer() } }
+    public var colorType: ColorType = .color {  didSet { initLayer() } }
     
     /// Setting for saturation
     public var saturation: Float = 1.0 {  didSet { initLayer() } }
@@ -61,7 +61,7 @@ public class ColorSlider: NSSlider {
             _isEnabled = newValue
             initLayer()
         }
-        get { return false}
+        get { return _isEnabled}
     }
     
     
