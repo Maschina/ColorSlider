@@ -21,7 +21,7 @@ public class ColorSlider: NSSlider {
     // MARK: - Properties
     
     /// Setting for color slider
-    public var colorType: ColorType = .color {  didSet { initLayer() } }
+    public var colorType: ColorType = .temperature {  didSet { initLayer() } }
     
     /// Setting for saturation
     public var saturation: Float = 1.0 {  didSet { initLayer() } }
@@ -61,7 +61,7 @@ public class ColorSlider: NSSlider {
             _isEnabled = newValue
             initLayer()
         }
-        get { return _isEnabled}
+        get { return false}
     }
     
     
@@ -174,7 +174,8 @@ public class ColorSlider: NSSlider {
             let fromValue = colorTemperatureMin
             let toValue = colorTemperatureMax + (colorTemperatureMax - colorTemperatureMin) / 10
             return stride(from: fromValue, to: toValue, by: (toValue - fromValue) / 10).map{
-                getRGB(fromCt: $0, offset: 500)
+                let color = getRGB(fromCt: $0, offset: 500)
+                return isEnabled ? color : color.grayscale()
             }
             
         default:
