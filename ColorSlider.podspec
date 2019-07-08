@@ -66,7 +66,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.platform     = :ios
-  spec.platform     = :osx, "10.14"
+  spec.platform     = :osx, "10.11"
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
@@ -137,6 +137,6 @@ Pod::Spec.new do |spec|
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
 
-  spec.swift_version = "4.2"
+  spec.swift_version = "5.0"
 
 end

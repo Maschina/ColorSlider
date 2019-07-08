@@ -54,7 +54,7 @@ public class ColorSlider: NSSlider {
         }
     }
     
-    
+    // FIXME: Can still receive click events when disabled
     private var _isEnabled: Bool = true
     public override var isEnabled: Bool {
         set {
