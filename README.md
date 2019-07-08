@@ -16,7 +16,7 @@ Color Slider in Swift language for AppKit (macOS)
 1. Add the following to your *Cartfile*:
 
 ```
-github "Hokyo/ColorSlider"
+github "Maschina/ColorSlider"
 ```
 2. You have two options:
     1. Either Run `carthage update` and add the framework as described in [Carthage Readme](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application)
@@ -27,7 +27,7 @@ github "Hokyo/ColorSlider"
 1. Add the following to your *Podfile*:
 
 ```
-pod 'ColorSlider', :git => 'https://github.com/Maschina/ColorSlider.git', :tag => '1.4'
+pod 'ColorSlider', :git => 'https://github.com/Maschina/ColorSlider.git'
 ```
 
 2. Run `pod install`.
