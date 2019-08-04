@@ -6,7 +6,7 @@ branch=$(git rev-parse --abbrev-ref HEAD)
 tag=$(git describe --tags $(git rev-list master --tags --max-count=1))
 
 # Check if in release branch within Git flow
-if [[ $branch =~ ^release\/([0-9]+)\.([0-9]+)(\.([0-9]+))?$ ]]; then 
+if [[ $branch =~ ^release\/([0-9]+)\.([0-9]+)(\.([0-9]+))? ]]; then 
   tagMajorNumber="${BASH_REMATCH[1]}"
   tagMinorNumber="${BASH_REMATCH[2]}"
   tagPatchNumber="${BASH_REMATCH[4]}"
@@ -14,7 +14,7 @@ if [[ $branch =~ ^release\/([0-9]+)\.([0-9]+)(\.([0-9]+))?$ ]]; then
   echo "You are currently on a release branch. Version: ${VersionString}"
 
 # Check if in hotfix branch within Git flow
-elif [[ $branch =~ ^hotfix\/([0-9]+)\.([0-9]+)(\.([0-9]+))?$ ]]; then
+elif [[ $branch =~ ^hotfix\/([0-9]+)\.([0-9]+)(\.([0-9]+))? ]]; then
   tagMajorNumber="${BASH_REMATCH[1]}"
   tagMinorNumber="${BASH_REMATCH[2]}"
   tagPatchNumber="${BASH_REMATCH[4]}"
@@ -22,7 +22,7 @@ elif [[ $branch =~ ^hotfix\/([0-9]+)\.([0-9]+)(\.([0-9]+))?$ ]]; then
   echo "You are currently on an hotfix branch. Version: ${VersionString}"
 
 # We are most likely on developer branch. Use tag name as version.
-elif [[ $branch =~ ^develop$ ]] && [[ $tag =~ ^([0-9]+)\.([0-9]+)(\.([0-9]+))?$ ]]; then
+elif [[ $branch =~ ^develop$ ]] && [[ $tag =~ ^([0-9]+)\.([0-9]+)(\.([0-9]+))? ]]; then
   tagMajorNumber="${BASH_REMATCH[1]}"
   tagMinorNumber="${BASH_REMATCH[2]}"
   tagPatchNumber="${BASH_REMATCH[4]}"
