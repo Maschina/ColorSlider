@@ -22,4 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
+    
+    @IBAction func onClickSaturation(_ sender: NSSlider) {
+        colorSlider.saturation = sender.floatValue
+    }
 }

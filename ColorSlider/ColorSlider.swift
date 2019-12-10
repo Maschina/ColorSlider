@@ -44,6 +44,7 @@ public class ColorSlider: NSSlider {
         didSet {
             updateLayer()
             animateBackground()
+            sendAction(self.action, to: self.target)
         }
     }
     
@@ -51,6 +52,9 @@ public class ColorSlider: NSSlider {
     fileprivate(set) public var isDragging: Bool = false {
         didSet {
             updateLayer()
+            if self.isContinuous {
+                sendAction(self.action, to: self.target)
+            }
         }
     }
     
