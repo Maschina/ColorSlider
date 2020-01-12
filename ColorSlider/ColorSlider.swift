@@ -210,14 +210,12 @@ public class ColorSlider: NSSlider {
     }
     
     lazy var backgroundLinedRect: NSBezierPath = {
-        let bezelMargin: CGFloat = 8
-        let bezelFrame = bounds.insetBy(dx: bezelMargin / 2, dy: bezelMargin)
+        let bezelFrame = NSRect(x: 0, y: bounds.height/2 - 1.5, width: bounds.width, height: 3)
         return NSBezierPath(roundedRect: bezelFrame, xRadius: bezelFrame.height * 0.5, yRadius: bezelFrame.height * 0.5)
     }()
     
     lazy var backgroundFilledRect: NSBezierPath = {
-        let bezelMargin: CGFloat = 0
-        let bezelFrame = bounds.insetBy(dx: bezelMargin / 2, dy: bezelMargin)
+        let bezelFrame = bounds
         return NSBezierPath(roundedRect: bezelFrame, xRadius: bezelFrame.height * 0.5, yRadius: bezelFrame.height * 0.5)
     }()
     
