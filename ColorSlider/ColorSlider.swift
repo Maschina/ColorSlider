@@ -274,6 +274,7 @@ public class ColorSlider: NSSlider {
     }
     
     override public func drawFocusRingMask() {
+        if refusesFirstResponder { return }
         knobRect.fill()
     }
     

@@ -19,6 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         colorSlider.isContinuous = false
+        colorSlider.refusesFirstResponder = true
         colorSlider.action = #selector(onChangeColorSlider)
     }
 
