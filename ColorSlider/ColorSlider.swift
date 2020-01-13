@@ -35,16 +35,19 @@ public class ColorSlider: NSSlider {
 
     public var selectedColor: NSColor {
         let amount: CGFloat = CGFloat(floatValue / Float(maxValue))
-        return backgroundGradient.interpolatedColor(atLocation: amount)
+        let saturatedColor = NSColor.init(calibratedHue: amount, saturation: CGFloat(saturation), brightness: 1.0, alpha: 1.0)
+        return saturatedColor
     }
     
     
     /// Indicating that user is currently interacting with this control, e.g. mouse down
     fileprivate(set) public var isTracking: Bool = false {
-        didSet {
+        didSet(newValue) {
             updateLayer()
             animateBackground()
-            sendAction(self.action, to: self.target)
+            if newValue == true {
+                sendAction(self.action, to: self.target)
+            }
         }
     }
     
