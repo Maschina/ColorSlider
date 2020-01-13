@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ColorSlider"
-  spec.version      = "1.4.8"
+  spec.version      = "1.4.9"
   spec.summary      = "Static ColorSlider with animation capability for macOS (AppKit)."
 
   # This description is used to generate tags and improve search results.
